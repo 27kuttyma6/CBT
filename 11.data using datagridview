@@ -1,0 +1,6 @@
+PROCEDURE:-  
+1. Open the C# Windows application Project and add a form to it.  
+2. Open the Tool Box, Click the DataGridView tool and place it on the Form by dragging the mouse.  
+3. Add a datasource for the project and choose the datasource type as database.  
+4. Select the data connections and database object as the table.  
+5. Run the application. The records will be displayed in the Datagridview. 
