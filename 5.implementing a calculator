@@ -1,0 +1,73 @@
+PROCEDURE:- 
+1. Open Microsoft Visual studio and create a new Windows application . 
+2. Include a textbox and 18 buttons in the form.  
+3. Edit the following code inside the public partial class form1 before all the sub functions  
+double a, m,result; 
+char op;  
+
+
+1. Edit the following code in click event of the cancel button 
+textBox1.Clear();  
+
+2. Edit the following code in click event of the memory button 
+m = Convert.ToInt32(textBox1.Text); textBox1.Clear(); 
+
+3. Edit the following code in click event of the recall button 
+textBox1.Text = m.ToString();  
+
+4. Edit the following code in click event of 1 button 
+textBox1.AppendText("1");  
+
+5. Edit the following code in click event of 2 button 
+textBox1.AppendText("2");  
+
+6. Similarly edit the corresponding code for 3,4,5,6,7,8,9 and 0 buttons  
+7. Edit the following code in click event of + button 
+a = Convert.ToDouble(textBox1.Text);  
+op = '+'; 
+textBox1.Clear();  
+
+8. Edit the following code in click event of - button 
+a = Convert.ToDouble(textBox1.Text); 
+op = "-"  
+textBox1.Clear()  
+
+9. Edit the following code in click event of * button 
+a = Convert.ToDouble(textBox1.Text); 
+op = "*"  
+textBox1.Clear()  
+
+10. Edit the following code in click event of / button. 
+a = Convert.ToDouble(textBox1.Text); 
+op = "/" 
+textBox1.Clear()  
+
+11. Edit the following code in click event of = button. 
+switch(op) 
+{ 
+case '+':  
+{  
+result = a+Convert.ToInt32(textBox1.Text ); 
+textBox1.Text = Convert.ToString(result); 
+break; 
+}  
+case '-': 
+{ 
+result = a - Convert.ToInt32(textBox1.Text); 
+textBox1.Text = Convert.ToString(result); 
+break; 
+}  
+case '*': 
+{ 
+result = a * Convert.ToInt32(textBox1.Text); 
+textBox1.Text = Convert.ToString(result);  
+break; 
+} 
+case '/': 
+{  
+result = a / Convert.ToInt32(textBox1.Text); 
+textBox1.Text = Convert.ToString(result); 
+break; 
+} 
+}  
+12. Run the application 
