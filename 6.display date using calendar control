@@ -1,0 +1,19 @@
+PROCEDURE:-  
+1. Open Microsoft visual studio and create a new windows application. 
+2. Drag a DateTimePicker control and a button from the toolbox. 
+3. Double click on the form and type the following code.  
+
+private void Form1_Load (object sender, EventArgs e)  
+{  
+textBox1.Text = Convert.ToString (dateTimePicker1.Value.Day); 
+textBox2.Text = Convert.ToString(dateTimePicker1.Value.Month); 
+textBox3.Text = Convert.ToString(dateTimePicker1.Value.Year);  
+}  
+
+4. Double click on the button and type the following code:  
+private void dateTimePicker1_ValueChanged(object sender, EventArgs e) 
+{  
+textBox1.Text = Convert.ToString(dateTimePicker1.Value.Day); 
+textBox2.Text = Convert.ToString(dateTimePicker1.Value.Month); 
+textBox3.Text = Convert.ToString(dateTimePicker1.Value.Year);  
+}   
