@@ -3,14 +3,21 @@ Procedure:
 2. Drag the Datagrid view control and a button into the form.
 3. Create an XML file with the following code and save the file as mark.xml  
 <?xml version=”1.0”?>  
-<students> <student>  
-<subject> JAVA </subject> <mark> 98 </mark> <year> 2012 </year>  
+<students> 
+<student>  
+<subject> JAVA </subject> 
+<mark> 98 </mark> 
+<year> 2012 </year>  
 </student>  
 <student>  
-<subject> ASP .NET </subject> <mark> 100 </mark> <year> 2013 </year>  
+<subject> ASP .NET </subject> 
+<mark> 100 </mark> 
+<year> 2013 </year>  
 </student>  
 <student>  
-<subject> C++ </subject> <mark> 97 </mark> <year> 2012 </year>  
+<subject> C++ </subject> 
+<mark> 97 </mark> 
+<year> 2012 </year>  
 </student>  
 </students>  
 4. Create a windows application using C# .net and design a form with a Datagridview and a button.  
