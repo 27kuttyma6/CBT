@@ -1,0 +1,74 @@
+Procedure: 
+1. Open Microsoft Visual studio and create a new window application.  
+2. Add a label, group box, 3 radio buttons, timer and a button in the form.  
+Edit the following code inside the class Form1 before all the sub functions. 
+Dim Quest(4, 3), Ans(4, 1) As String 
+Dim i As Integer = -1  
+3. Edit the following code in the load event of Form1. 
+Quest(0, 0) = "In whick year India won the criket world cup?" 
+Quest(0, 1) = "1973"  
+Quest(0, 2) = "1983" 
+Quest(0, 3) = "1987"
+
+Quest(1, 0) = "Scanner is a _____________ device"  
+Quest(1, 1) = "Input" 
+Quest(1, 2) = "Output"  
+Quest(1, 3) = "I/O"  
+
+Quest(2, 0) = "Which one of the following is a browser?" 
+Quest(2, 1) = "Visual Basic" 
+Quest(2, 2) = "Java"  
+Quest(2, 3) = "InternetExplorer"  
+
+Quest(3, 0) = "____________ is the desciple of Jesus came to India?"  
+Quest(3, 1) = "Thomas"  
+Quest(3, 2) = "Andrew" 
+Quest(3, 3) = "Philip"  
+
+Quest(4, 0) = "Tsunami hit India on ____________"  
+Quest(4, 1) = "24-12-2006" 
+Quest(4, 2) = "26-12-2004" 
+Quest(4, 3) = "26-12-2006"  
+
+Ans(0, 0) = "1983"  
+Ans(1, 0) = "Input" Ans(2, 0) = "InternetExplorer" 
+Ans(3, 0) = "Thomas"  
+Ans(4, 0) = "26-12-2004"  
+
+Timer1.Enabled = True 
+Button1.Enabled = False  
+
+3. Edit the following code in Tick event of Timer1  
+i = i + 1  
+If (i = 5) Then 
+Timer1.Enabled = False 
+Button1.Enabled = True  
+Else  
+RadioButton1.Checked = False 
+RadioButton2.Checked = False   
+RadioButton3.Checked = False 
+TextBox1.Text = Quest(i, 0) 
+RadioButton1.Text = Quest(i, 1)  
+RadioButton2.Text = Quest(i, 2) 
+RadioButton3.Text = Quest(i, 3) 
+End If 
+
+5. Edit the following code in the CheckedChanged event of RadioButton1.
+Ans(i, 1) = RadioButton1.Text  
+
+6. Edit the following code in the CheckedChanged event of RadioButton2. 
+Ans(i, 1) = RadioButton2.Text  
+
+7. Edit the following code in the CheckedChanged event of RadioButton3. 
+Ans(i, 1) = RadioButton3.Text  
+
+8. Edit the following code in the Click event of the Button1.  
+Dim j As Integer 
+Dim count As Integer = 0 
+For j = 0 To 4  
+If (Ans(j, 0) = Ans(j, 1)) Then  
+count += 1 
+End If 
+Next  
+MsgBox("You have scored " & count & "marks")  
+9. Run the Application. 
