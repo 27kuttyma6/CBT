@@ -1,0 +1,146 @@
+Procedure:  
+1. Create a table stud in a SQL server database student. (Using SQL Query Analyzer) 
+Create table stud(regno varchar(10),Sname varchar(10),dept varchar(15));  
+2. Open Microsoft Visual studio and create a new Windows Applications.  
+3. Add a combobox, 2 textboxes and 4 buttons in the form. 
+4. Edit the following line at the top of the coding before any other code. Imports System.Data.SqlClient  
+5. Edit the following code inside the class Form1 before all the sub functions.  
+SqlConnection con = new SqlConnection(); 
+SqlCommand com = new SqlCommand(); 
+SqlDataReader dr, dr1,dr2;  
+
+6. Edit the following code in the Load event of Form1  
+con.ConnectionString = @"Data source=cc1sys22; Integrated security=true;Database=pubs"; 
+com.Connection = con; 
+con.Open(); 
+com.CommandText = "select * from pubs";  
+dr = com.ExecuteReader(); 
+while(dr.Read())  
+{ 
+comboBox1.Items.Add(dr.GetString(0));  
+} 
+dr.Close(); 
+
+7. Edit the following code in the click event of the Button1.  
+textBox2.Clear(); 
+textBox3.Clear()  
+com.CommandText = "insert into pubs values('" + comboBox1.Text + "','" + textBox2.Text + "','" + textBox3.Text + "')"; 
+com.ExecuteNonQuery(); 
+MessageBox.Show("1 record is inserted");  
+
+8. Edit the following code in the click event of the Button2.  
+com.CommandText = "select * from pubs where regno='" + comboBox1.SelectedItem + "'"; dr = com.ExecuteReader(); 
+if (dr.Read()) 
+{  
+textBox2.Text = dr.GetString(1); 
+textBox3.Text = dr.GetString(2); 
+} dr.Close(); 
+ 
+9. Edit the following code in the click event of the Button3.  
+com.CommandText = "update pubs set sname='"+textBox2.Text+"',dept='"+textBox3.Text+"' where regno='" + comboBox1.SelectedItem + "'";  
+dr1 = com.ExecuteReader();
+MessageBox.Show("1 Record updated"); 
+dr1.Close();  
+
+10.Edit the following code in the click event of Button4.  
+com.CommandText = "delete pubs where regno='" + comboBox1.Text + "'"; 
+dr2 = com.ExecuteReader(); 
+MessageBox.Show("1 Record deleted"); 
+comboBox1.Items.Remove(comboBox1.SelectedItem); 
+textBox2.Clear(); 
+textBox3.Clear(); 
+dr2.Close();  
+11. Run the Application. 
+
+CODING:
+using System.Data.SqlClient;
+namespace WindowsFormsApplication3
+{
+    public partial class Form2 : Form
+    {
+        SqlConnection con = new SqlConnection();
+        SqlCommand com = new SqlCommand();
+        SqlDataReader red;
+        public Form2()
+        {
+            InitializeComponent();
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+            con.ConnectionString = @"data source =ADMIN-PC\sqlexpress; Initial catalog=master;Integrated security=true";
+            com.Connection = con;
+            con.Open();
+         }
+       
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            textBox1.Clear();
+            textBox2.Clear();
+            textBox3.Clear();
+            textBox1.Visible = true;
+            comboBox1.Visible = false;
+            button1.Enabled = true;
+            button2.Enabled = false;
+            button3.Enabled = false;
+        }
+        
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            comboBox1.Items.Clear();
+            button1.Enabled = false;
+            button2.Enabled = true;
+            button3.Enabled = true;
+            comboBox1.Visible = true;
+            textBox1.Visible = false;
+            com.CommandText = "select * from sam";
+            red = com.ExecuteReader();
+            while (red.Read ())
+            {
+                comboBox1.Items.Add(red.GetValue(0));
+            }
+            red.Close();
+         }
+         
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+       com.CommandText ="select * from sam where rno= '"+ comboBox1 .SelectedItem +"'";
+            red=com.ExecuteReader();
+            while (red.Read())
+            {
+                textBox2.Text = red.GetString(1);
+                textBox3.Text = red.GetString(2);
+            }
+            red.Close();
+        }
+        
+        // Insertion Operation
+        private void button1_Click(object sender, EventArgs e)
+        {
+  com.CommandText = "insert into sam values('" + Convert .ToInt16(textBox1.Text) + "',    
+                    '" + textBox2.Text + " ', '" + textBox3.Text + "')";
+            com.ExecuteNonQuery();
+            con.Close();
+            MessageBox.Show("Record Inserted");
+        }
+
+        // Deletion Operation
+        private void button2_Click(object sender, EventArgs e)
+        {
+         com.CommandText = "delete from sam where rno='" + comboBox1.SelectedItem + "'";
+            com.ExecuteNonQuery();
+            comboBox1.Items.Remove(comboBox1.SelectedItem);
+            textBox2.Clear();
+            textBox3.Clear();
+            MessageBox .Show ("deleted");
+         }
+        // Updation Operation
+        private void button3_Click(object sender, EventArgs e)
+        {
+com.CommandText = "update sam set sname='" + textBox2.Text + "',dept='"+textBox3.Text+ "' 
+                   where rno='" + comboBox1.SelectedItem + "'";
+            com.ExecuteNonQuery();
+            MessageBox.Show("updated");
+        }
+    }
+}
