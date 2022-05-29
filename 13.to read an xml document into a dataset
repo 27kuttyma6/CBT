@@ -27,7 +27,7 @@ DataSet ds=new DataSet();
 7. Type the following code in the click event of Button1 
 private void button1_Click(object sender, EventArgs e)  
 {  
-ds.ReadXml("d:/employee.xml"); 
+ds.ReadXml(@"d:/employee.xml"); 
 dataGridView1.DataMember = "employee";
 dataGridView1.DataSource = ds; 
 }  
