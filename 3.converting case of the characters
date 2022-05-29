@@ -1,0 +1,31 @@
+PROCEDURE: 
+1. Open the C# windows application project and add a form to it.  
+2. Add a Label , 2 Text Boxes and 2 buttons to the form.
+3. Double click on Button1 and type the code in click() event. 
+4. Double click on Button2 and type the code in click() event. 
+5. After adding the coding run the program by pressing ‘F5’ .  
+
+
+CODING:-  
+private void button1_Click(object sender, EventArgs e) 
+{ 
+String s; 
+string outputString = string.Empty;  
+s = textBox1.Text; foreach (char c in s) 
+{ 
+if (Char.IsLower(c))  
+{ 
+outputString+=char.ToUpper(c); 
+textBox2.Text = outputString; 
+}  
+else 
+{ 
+outputString += char.ToLower(c); 
+textBox2.Text = outputString; }  
+}  
+}  
+private void button2_Click(object sender, EventArgs e)  
+{ 
+textBox1.Clear(); 
+textBox2.Clear(); 
+}  
