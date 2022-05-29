@@ -1,0 +1,24 @@
+Procedure:  
+1. Open Microsoft Visual Studio and create a new Windows Application.  
+2. Create a windows form and drag a Openfiledialog and Folderbrowserdialog and 2 buttons into the form.  
+3. Double click on the Button1 and type the following code.  
+OpenFileDialog dlg = new OpenFileDialog(); 
+dlg.ShowDialog(); 
+if (dlg.ShowDialog() == DialogResult.OK)
+{  
+string fileName;
+fileName = dlg.FileName;  
+textBox1.Text =fileName; 
+}  
+
+4. Double click on Button2 and type the following code.  
+FolderBrowserDialog dlg = new FolderBrowserDialog(); 
+dlg.ShowDialog(); 
+if (dlg.ShowDialog() == DialogResult.OK)  
+{ 
+string folderName;
+folderName = dlg.SelectedPath; 
+textBox1.Text = folderName; 
+}  
+
+5. Run the Application. 
