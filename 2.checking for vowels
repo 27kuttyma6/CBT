@@ -1,0 +1,19 @@
+PROCEDURE:- 
+1) Open Visual Studio by clicking Start🡪All Programs🡪Microsoft Visual Studio.  
+2) To create a Windows application Select File🡪New project and click on Windows application icon.  
+3) A new form is created, place a Label , 2 Textboxes and a button in the form. 
+4) Double click on the button and add the following code in the CLICK() event of the button.  
+5) Press F5 to execute the application.  
+
+
+CODING:-  
+private void button1_Click(object sender, EventArgs e)  
+{  
+string c; c=textBox1.Text.ToUpper();  
+if (c == "A" || c == "E" || c == "I" || c == "O" || c == "U")  
+{ 
+textBox2.Text="VOWEL";  
+}  else  
+{     textBox2.Text="NOT VOWEL";  
+}     
+}         
